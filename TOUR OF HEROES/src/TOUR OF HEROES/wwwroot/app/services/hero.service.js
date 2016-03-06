@@ -13,7 +13,20 @@ var HeroService = (function () {
     function HeroService() {
     }
     HeroService.prototype.getHeroes = function () {
-        return hero_list_1.HEROES;
+        return Promise.resolve(hero_list_1.HEROES);
+    };
+    HeroService.prototype.getTopHeroes = function (count) {
+        return Promise.resolve(hero_list_1.HEROES.copyWithin(count, 0));
+    };
+    HeroService.prototype.getHero = function (id) {
+        return Promise.resolve(hero_list_1.HEROES).then(function (heroes) { return heroes.filter(function (hero) { return hero.id === id; })[0]; });
+    };
+    HeroService.prototype.asyncGetHeroes = function () {
+        return new Promise(function (r) {
+            setTimeout(function () {
+                return r(hero_list_1.HEROES);
+            }, 2000);
+        });
     };
     HeroService = __decorate([
         core_1.Injectable(), 

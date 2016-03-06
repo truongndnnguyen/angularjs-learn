@@ -25,6 +25,12 @@ namespace TOUR_OF_HEROES
             app.UseDefaultFiles();
             app.UseStaticFiles();
 
+            app.Run(context =>
+            {
+                if (context.Request.Path.Value != "/app") context.Response.WriteAsync("/");
+                return Task.FromResult<object>(null);
+            }
+            );
             //app.Run(async (context) =>
             //{
             //    await context.Response.WriteAsync("Hello World!");
