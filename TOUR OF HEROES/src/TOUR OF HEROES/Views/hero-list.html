@@ -5,6 +5,11 @@
     </li>
 </ul>
 
+<div class="add-hero">
+    <input #box (keyup.enter)="addHero(box.value)" maxlength="30"/>
+    <button (click)="addHero(box.value)"> Add</button>
+</div>
+
 <div *ngIf="selectedHero">
     <h2>
         {{selectedHero.name | uppercase}} is my hero

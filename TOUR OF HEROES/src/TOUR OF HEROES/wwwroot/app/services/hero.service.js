@@ -16,7 +16,10 @@ var HeroService = (function () {
         return Promise.resolve(hero_list_1.HEROES);
     };
     HeroService.prototype.getTopHeroes = function (count) {
-        return Promise.resolve(hero_list_1.HEROES.copyWithin(count, 0));
+        return Promise.resolve(hero_list_1.HEROES.slice(0, count));
+    };
+    HeroService.prototype.addHero = function (hero) {
+        return Promise.resolve(hero).then(function (s) { return hero_list_1.HEROES.push(s); });
     };
     HeroService.prototype.getHero = function (id) {
         return Promise.resolve(hero_list_1.HEROES).then(function (heroes) { return heroes.filter(function (hero) { return hero.id === id; })[0]; });

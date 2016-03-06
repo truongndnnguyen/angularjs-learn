@@ -10,9 +10,11 @@ export class HeroService {
     }
 
     getTopHeroes(count: number) {
-        return Promise.resolve(HEROES.copyWithin(count, 0));
+        return Promise.resolve(HEROES.slice(0,count));
     }
-
+    addHero(hero: Hero) {
+        return Promise.resolve(hero).then(s=> HEROES.push(s));
+    }
     getHero(id: number) {
         return Promise.resolve(HEROES).then(
             heroes => heroes.filter(hero => hero.id === id)[0]

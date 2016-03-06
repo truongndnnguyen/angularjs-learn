@@ -12,6 +12,7 @@ var hero_service_1 = require('./services/hero.service');
 var heroes_component_1 = require('./heroes.component');
 var dashboard_component_1 = require('./dashboard.component');
 var hero_detail_component_1 = require('./hero-detail.component');
+var myhero_component_1 = require('./myhero.component');
 var router_1 = require('angular2/router');
 var AppComponent = (function () {
     function AppComponent(_heroService) {
@@ -42,6 +43,11 @@ var AppComponent = (function () {
                 path: '/hero/:id',
                 name: 'HeroDetail',
                 component: hero_detail_component_1.HeroDetailComponent,
+            },
+            {
+                path: '/myhero',
+                name: 'MyHero',
+                component: myhero_component_1.MyHeroComponent,
             }
         ]), 
         __metadata('design:paramtypes', [hero_service_1.HeroService])

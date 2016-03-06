@@ -1,0 +1,13 @@
+<h2>My Heroes</h2>
+<h3 *ngIf="myhero">My favorites hero is : {{myhero.name}}</h3>
+<ul class="heroes">
+    <li *ngFor="#hero of heroes" (click) ="onSelect(hero)">
+        {{hero.name}}
+    </li>
+</ul>
+
+<div *ngIf="heroes && heroes.length >0 ">
+    <div>There are so many heroes.........</div>
+</div>
+
+
