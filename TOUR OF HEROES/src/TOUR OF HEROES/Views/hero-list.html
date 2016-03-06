@@ -5,9 +5,8 @@
     </li>
 </ul>
 
-<div class="add-hero">
-    <input #box (keyup.enter)="addHero(box.value)" maxlength="30"/>
-    <button (click)="addHero(box.value)"> Add</button>
+<div class="add-hero" >
+    <button (click)="showForm()"> Add new Hero</button>
 </div>
 
 <div *ngIf="selectedHero">

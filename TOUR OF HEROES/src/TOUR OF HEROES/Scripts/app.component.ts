@@ -5,6 +5,7 @@ import {HeroesComponent}  from './heroes.component'
 import {DashboardComponent}  from './dashboard.component'
 import {HeroDetailComponent} from './hero-detail.component'
 import {MyHeroComponent} from './myhero.component'
+import {AddHeroComponent} from './add-hero.component'
 
 
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
@@ -38,6 +39,11 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/route
         path: '/myhero',
         name: 'MyHero',
         component: MyHeroComponent,
+    },
+    {
+        path: '/addhero',
+        name: 'AddHero',
+        component: AddHeroComponent,
     }
 
 ])

@@ -31,9 +31,13 @@ export class HeroesComponent implements OnInit {
         this._router.navigate(link);
     }
     addHero(hero: string) {
-        var h: Hero = { name: hero, id: this.heroes.length+1 }
+        var h: Hero = { name: hero, id: this.heroes.length + 1, power: 'superime', alterEgo:'test' }
         this.heroes.push(h)
         //this._heroService.addHero(h);
+    }
+    showForm() {
+        let link = ['AddHero', {}];
+        this._router.navigate(link);
     }
     getHeroes()
     {

@@ -5,12 +5,20 @@ var gulp = require('gulp');
 //var sass = require('gulp-sass');
 
 var paths = {
+    bowerSrc :"./bower_components",
     npmSrc: "./node_modules/",
     libTarget: "./wwwroot/libs/",
+    vendorsTarget: "./wwwroot/vendors",
     views: ["views/*.html"],
     scss: ["content/css/*.css"],
     appFolder: 'wwwroot/app'
 };
+
+var bowerLibs = [
+       paths.bowerSrc + '/bootstrap/dist/js/bootstrap.js',
+       paths.bowerSrc + '/bootstrap/dist/css/bootstrap.css',
+       paths.bowerSrc + '/jQuery/dist/jquery.js'
+];
 
 var libsToMove = [
    paths.npmSrc + '/angular2/bundles/angular2-polyfills.js',
@@ -25,6 +33,10 @@ var libsToMove = [
 gulp.task('moveToLibs', function () {
     return gulp.src(libsToMove).pipe(gulp.dest(paths.libTarget));
 });
+gulp.task('copyVendorLibs', function () {
+    return gulp.src(bowerLibs).pipe(gulp.dest(paths.vendorsTarget));
+});
+
 
 gulp.task('copyViews', function () {
     return gulp.src(paths.views)
@@ -37,7 +49,7 @@ gulp.task('buildCopyCSS', function () {
                 .pipe(gulp.dest(paths.appFolder + '/content/css'));
 })
 
-gulp.task('copy', ['moveToLibs', 'copyViews', 'buildCopyCSS'], function () {
+gulp.task('copy', ['moveToLibs', 'copyViews', 'buildCopyCSS', 'copyVendorLibs'], function () {
     
 })
 

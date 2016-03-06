@@ -28,9 +28,13 @@ var HeroesComponent = (function () {
         this._router.navigate(link);
     };
     HeroesComponent.prototype.addHero = function (hero) {
-        var h = { name: hero, id: this.heroes.length + 1 };
+        var h = { name: hero, id: this.heroes.length + 1, power: 'superime', alterEgo: 'test' };
         this.heroes.push(h);
-        this._heroService.addHero(h);
+        //this._heroService.addHero(h);
+    };
+    HeroesComponent.prototype.showForm = function () {
+        var link = ['AddHero', {}];
+        this._router.navigate(link);
     };
     HeroesComponent.prototype.getHeroes = function () {
         var _this = this;
